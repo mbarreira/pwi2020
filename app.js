@@ -64,23 +64,7 @@ app.get('/editar/:id', async function(req, res){
     res.render('carga', {datos: registro});
 });
 
-app.post('/editar/:id', async function (req, res) {
-    if (req.body.nombre == '') {
-        res.render('carga', {
-            error: 'Todos los campos son obligatorios',
-            datos: {
-                detalle: req.body.detalle,
-                animo: req.body.animo
-            }
-        });
-        return;
-    } 
-    await RegistroModel.findByIdAndUpdate({_id: req.params.id}, {
-        detalle: req.body.detalle, 
-        animo: req.body.animo
-    });
-    res.redirect('/tareas');
-});
+
 
 
 //--------------------------------------------
